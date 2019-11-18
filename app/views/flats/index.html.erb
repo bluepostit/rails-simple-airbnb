@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>All our flats (<%= @flats.count %>)
+    <small><%= link_to 'New', new_flat_path %></small></h1>
+  <div>
+    <form>
+      <input type="text" name="search" value="<%= @query %>">
+      <input type="submit" value="Search">
+    </form>
+  </div>
+  <div class="flat-grid">
+    <% @flats.each do |flat| %>
+      <div class="flat-card">
+        <h3><%= flat.name %></h3>
+        <p><%= flat.address %></p>
+        <div class="d-flex">
+          <div><%= flat.number_of_guests %> guests</div>
+        </div>
+        <p><%= link_to 'More info', flat_path(flat) %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
